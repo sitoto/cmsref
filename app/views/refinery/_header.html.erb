@@ -1,0 +1,52 @@
+<div id="hwrapper">
+<div id='logo' class="log">
+  <%= link_to Refinery::Core.site_name, refinery.root_path %>
+</div>
+<div class="menu">
+<%= render(:partial => "/refinery/menu", :locals => {
+             :dom_id => 'nav'
+}) %>
+</div>
+   <ul id="topnav">
+	     <li> 
+	     <a href="/">Usb Fan</a>
+	     </li>
+	     <li>
+	     <a href="">Industrial Wall Fan</a>
+
+	     </li>
+	     <li class="ceiling">
+	     <a href="/">Ceiling Fans</a>
+	     <div class="sub" style="width: 286px; opacity: 0; display: none; ">
+  <ul>
+    <li><a href="/">Remote Control Type<img src="/assets/menu-remote.jpg"></a></li>
+    <li><a href="/">Regulator Type<img src="/assets/menu-regulator.jpg"></a></li>
+  </ul>
+</div>
+
+
+	     </li>
+	     <li class="general">
+	     <a href="/">General Fans</a>
+	     <div class="sub" style="display: none; width: 572px; opacity: 0; ">
+	<ul>
+	<li><a href="/">Stand Fans<img src="/assets/menu-stand.jpg"></a></li>
+	<li><a href="/">Auto Fan<img src="/assets/menu-auto.jpg"></a></li>
+	<li><a href="/">Wall Fans<img src="/assets/menu-wall.jpg"></a></li>
+	<li><a href="/">Table Fans<img src="/assets/menu-table.jpg"></a></li>
+	</ul>
+</div>
+	     </li>
+	     <li class="ventilating">
+	     <a href="/">Ventilating Fans</a>
+	<div class="sub" style="width: 286px; opacity: 0; display: none; ">
+	<ul>
+	<li><a href="/">Industrial Use<img src="/assets/menu-industrial.jpg" border=0 /></a></li>
+	<li><a href="/">Residential Use<img src="/assets/menu-residential.jpg" border=0 /></a></li>
+	</ul>
+</div>     
+	     </li>
+   </ul>
+   <!--end top nav-->
+   <div class="clearfix"></div>	     
+</div>

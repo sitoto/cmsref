@@ -1,0 +1,33 @@
+es:
+  refinery:
+    plugins:
+      products:
+        title: Products
+#        article: masculino/femenino
+    products:
+      admin:
+        products:
+          actions:
+            create_new: Crear nuevo product
+            reorder: Reordenar products
+            reorder_done: Reordenación de products completada
+          records:
+            title: Products
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay products todavía. Pulsa en "Crear nuevo Product" para crear tu primer product.
+          product:
+            view_live_html: Ver este product como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este product
+            delete: Borrar este product para siempre
+      products:
+        show:
+          other: Otros products
+  activerecord:
+    attributes:
+      'refinery/products/product':
+        title: Title
+        size: Size
+        date: Date
+        photo: Photo
+        note: Note
+        blurb: Blurb

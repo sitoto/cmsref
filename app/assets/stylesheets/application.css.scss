@@ -1,0 +1,21 @@
+body {
+margin: 0;
+padding: 0;
+font-family: "Arial", Helvetica, sans-serif;
+line-height: 12pt;
+font-size: 9pt;
+color: #383434;
+}
+#body_content, #side_body_content {
+  float: left;
+  width: 45%;
+  background: white;
+  color: #333;
+  padding: 20px;
+}
+body { margin:0; padding:0; font-family: "Arial", Helvetica, sans-serif; line-height: 12pt; font-size: 9pt; color:#383434;}
+a {font-family: "Arial", Helvetica, sans-serif; outline: none;}
+a:link, a:visited {color: #ff0000;text-decoration:none;}
+a:hover, a:active {color: #de030b;text-decoration:none;}
+img{border: 0 none;  float:left; }
+ul{margin:0; padding:0; list-style:none;}
