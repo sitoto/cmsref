@@ -130,6 +130,56 @@ ul#topnav .ventilating .sub { left:-17px; background:url(/assets/arrow-menu.png)
 			
 ul#topnav .current a{color:#ff0000;}
 
+/*--home content--*/
+   #content{ background:#eaeadc url( /assets/bg_slider_page.jpg) repeat-x top left;}
+      #cwrapper{ width:960px; margin:0 auto; background:#ffffff;}
+      #slider{height:596px; margin:0 auto;}
+      /* Easy Slider */
+      #slider ul{margin:0; padding:0; list-style:none;}
+      #slider li{height:596px; width:960px;}
+        #slider .s1{height:596px; background:url( /assets/slide1.jpg) no-repeat top center;}
+        #slider .s2{height:596px; background:url( /assets/slide2.jpg) no-repeat top center;}
+        #slider .s3{height:596px; background:url( /assets/slide3.jpg) no-repeat top center;}
+        #slider .s4{height:596px; background:url( /assets/slide4.jpg) no-repeat top center;}
+
+	#prevBtn, #nextBtn{position:absolute; top:140px; z-index:1000;}  
+      #nextBtn{margin-left:884px;}
+        
+      #prevBtn a, #nextBtn a{display:block; width:76px; height:590px; background:url( /assets/btn_prev.png) no-repeat center;}  
+      #nextBtn a{background:url( /assets/btn_next.png) no-repeat center; }
+      #prevBtn a:hover{background:url( /assets/btn_prevOn.png) no-repeat center; }
+      #nextBtn a:hover{background:url( /assets/btn_nextOn.png) no-repeat center; }
+
+         .quicklink{ padding:20px 50px; margin-top:400px; position:absolute; z-index:100px;}
+        a.btn-download, a.btn-download:link { display:block; width:254px; height:155px; background:url( /assets/b-download.png) no-repeat top left;}
+        a.btn-download:hover, a.btn-download:active { background:url( /assets/b-downloadon.png) no-repeat top left;}
+        
+        a.btn-safety, a.btn-safety:link { display:block; width:254px; height:155px; background:url( /assets/b-safety.png) no-repeat top left;}
+        a.btn-safety:hover, a.btn-safety:active { background:url( /assets/b-safetyon.png) no-repeat top left;}
+        
+        a.btn-map, a.btn-map:link { display:block; width:254px; height:155px; background:url( /assets/b-map.png) no-repeat top left;}
+        a.btn-map:hover, a.btn-map:active { background:url( /assets/b-mapon.png) no-repeat top left;}
+        
+        a.btn-download, a.btn-safety, a.btn-map { float:left;}
+        a.btn-download h1, a.btn-safety h1, a.btn-map h1{ padding:40px 20px 0 100px; font-size:18px; line-height:25px;}
+        
+        .rmargin{margin-right:45px;}
+      
+      .quicklink{ padding:20px 6px; margin-top:410px;}
+        .box-link{float:left;}
+          a.link1, a.link1:link { display:block; width:237px; height:154px; background:url( /assets/link1.png) no-repeat top center;}
+          a.link1:hover, a.link1:active { background:url( /assets/link1-on.png) no-repeat top center;}
+          
+          a.link2, a.link2:link { display:block; width:237px; height:154px; background:url( /assets/link2.png) no-repeat top center;}
+          a.link2:hover, a.link2:active { background:url( /assets/link2-on.png) no-repeat top center;}
+          
+          a.link3, a.link3:link { display:block; width:237px; height:154px; background:url( /assets/link3.png) no-repeat top center;}
+          a.link3:hover, a.link3:active { background:url( /assets/link3-on.png) no-repeat top center;}
+          
+          a.link4, a.link4:link { display:block; width:237px; height:154px; background:url( /assets/link4.png) no-repeat top center;}
+          a.link4:hover, a.link4:active { background:url( /assets/link4-on.png) no-repeat top center;}     
+
+
 article, nav, header, footer, aside, hgroup, section {
 display: block;
 }
@@ -148,8 +198,9 @@ padding: 0px;
 	position: relative;
 	height: 132px;
 }
-
+/*
 #page, #header_content, #footer_content {
 width: 960px;
 margin: 0px auto;
 }
+*/
