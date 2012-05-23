@@ -1,11 +1,40 @@
-<% content_for :body_content_left do %>
-  <ul id="products">
+<div id="content">
+  <div id="cwrapper">
+    <div id="banner">
+      <img src="/assets/banner-ventilating.jpg">
+    </div>
+    <% unless @page.home? %>
+      <div class="bread_crumb">
+	<%= link_to "Home", '/' %>
+	<%= "&gt;".html_safe %>
+
+<% [@page.ancestors, @page].flatten.collect do |p| %> 
+  <%= link_to( p.title, p.url, :class => ( p.id == @page.id ? "current": "no" )) %> <%= "&gt;".html_safe unless p.id == @page.id  %>
+<% end %>
+
+      </div>
+    <% end %>
+    <div class="box">
+      <div class="sidebar">
+	<h1><%= @page.title %></h1>
+	<%= render :partial => "/refinery/menu", :locals => {
+	  :dom_id => "submenu" ,
+	  :css => "submenu" ,
+          :roots => refinery_menu_pages.select{|p| p.parent_id == @page.root.id} 
+      } %> 
+      </div>
+      <div class="page_content">
+   <ul id="products">
     <% @products.each do |product| %>
       <li>
         <%= link_to product.title, refinery.products_product_path(product) %>
       </li>
     <% end %>
   </ul>
-<% end %>
+    
+      </div>
+      <div class="clearfix"></div>
 
-<%= render '/refinery/content_page' %>
+    </div>
+  </div>
+</div>

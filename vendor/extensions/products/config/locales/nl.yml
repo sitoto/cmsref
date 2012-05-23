@@ -1,8 +1,30 @@
 nl:
   refinery:
     plugins:
+      categories:
+        title: Categories
       products:
         title: Products
+    categories:
+      admin:
+        categories:
+          actions:
+            create_new: Maak een nieuwe Category
+            reorder: Wijzig de volgorde van de Categories
+            reorder_done: Klaar met het wijzingen van de volgorde van de Categories
+          records:
+            title: Categories
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Categories. Druk op 'Maak een nieuwe Category'
+              om de eerste aan te maken.
+          category:
+            view_live_html: Bekijk deze category op de website <br/><em>(opent een
+              nieuw venster)</em>
+            edit: Bewerk deze category
+            delete: Verwijder deze category voor eeuwig
+      categories:
+        show:
+          other: Andere Categories
     products:
       admin:
         products:
@@ -13,9 +35,11 @@ nl:
           records:
             title: Products
             sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
-            no_items_yet: Er zijn nog geen Products. Druk op 'Maak een nieuwe Product' om de eerste aan te maken.
+            no_items_yet: Er zijn nog geen Products. Druk op 'Maak een nieuwe Product'
+              om de eerste aan te maken.
           product:
-            view_live_html: Bekijk deze product op de website <br/><em>(opent een nieuw venster)</em>
+            view_live_html: Bekijk deze product op de website <br/><em>(opent een
+              nieuw venster)</em>
             edit: Bewerk deze product
             delete: Verwijder deze product voor eeuwig
       products:
@@ -23,7 +47,11 @@ nl:
           other: Andere Products
   activerecord:
     attributes:
-      'refinery/products/product':
+      refinery/categories/category:
+        name: Name
+        parent_id: Parent
+        sort_order: Sort Order
+      refinery/products/product:
         title: Title
         size: Size
         date: Date

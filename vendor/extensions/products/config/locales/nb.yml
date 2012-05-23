@@ -1,8 +1,30 @@
 nb:
   refinery:
     plugins:
+      categories:
+        title: Categories
       products:
         title: Products
+    categories:
+      admin:
+        categories:
+          actions:
+            create_new: Lag en ny Category
+            reorder: Endre rekkefølgen på Categories
+            reorder_done: Ferdig å endre rekkefølgen Categories
+          records:
+            title: Categories
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Categories enda. Klikk på "Lag en ny Category"
+              for å legge til din første category.
+          category:
+            view_live_html: Vis hvordan denne category ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne category
+            delete: Fjern denne category permanent
+      categories:
+        show:
+          other: Andre Categories
     products:
       admin:
         products:
@@ -13,9 +35,11 @@ nb:
           records:
             title: Products
             sorry_no_results: Beklager! Vi fant ikke noen resultater.
-            no_items_yet: Det er ingen Products enda. Klikk på "Lag en ny Product" for å legge til din første product.
+            no_items_yet: Det er ingen Products enda. Klikk på "Lag en ny Product"
+              for å legge til din første product.
           product:
-            view_live_html: Vis hvordan denne product ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            view_live_html: Vis hvordan denne product ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
             edit: Rediger denne product
             delete: Fjern denne product permanent
       products:
@@ -23,7 +47,11 @@ nb:
           other: Andre Products
   activerecord:
     attributes:
-      'refinery/products/product':
+      refinery/categories/category:
+        name: Name
+        parent_id: Parent
+        sort_order: Sort Order
+      refinery/products/product:
         title: Title
         size: Size
         date: Date

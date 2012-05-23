@@ -204,3 +204,12 @@ width: 960px;
 margin: 0px auto;
 }
 */
+
+#footer{}
+    	#fwrapper{ width:940px; margin:0 auto; font-size:11px; padding:20px 10px;}
+        	.footerlink{ float:left;}
+            .copyright{ float:right; text-align:right; padding:0 2px 0 0;}
+				.copyright a:link, .copyright a:visited, .copyright a:hover, .copyright a:active{color:#000000;}
+				.copyright a:hover, .copyright a:active{ text-decoration:underline;}
+			.social{ float:right;}
+				.social img{ padding:0 0 0 5px;}

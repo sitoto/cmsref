@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120520170510) do
+ActiveRecord::Schema.define(:version => 20120523121207) do
+
+  create_table "refinery_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "sort_order"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -95,8 +104,12 @@ ActiveRecord::Schema.define(:version => 20120520170510) do
     t.text     "note"
     t.text     "blurb"
     t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "specification"
+    t.text     "accessories"
+    t.text     "dimension"
+    t.integer  "category_id"
   end
 
   create_table "refinery_resources", :force => true do |t|

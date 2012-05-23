@@ -26,6 +26,17 @@ $(document).ready(function(){
 		);
 });
 
+//for slider
+$(document).ready(function(){  
+  $("#slider").easySlider({
+    auto: true, 
+    speed: 500,
+    pause: 5500,
+    continuous: true
+  });
+});  
+
+
 //for topnav
 $(document).ready(function() {
   function megaHoverOver(){

@@ -1,8 +1,29 @@
 fr:
   refinery:
     plugins:
+      categories:
+        title: Categories
       products:
         title: Products
+    categories:
+      admin:
+        categories:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Category
+            reorder: Réordonner les Categories
+            reorder_done: Fin de réordonnancement des Categories
+          records:
+            title: Categories
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) Category. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) Category" pour créer votre premi(er/ère) category.
+          category:
+            view_live_html: Voir ce(t/tte) category <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) category
+            delete: Supprimer définitivement ce(t/tte) category
+      categories:
+        show:
+          other: Autres Categories
     products:
       admin:
         products:
@@ -12,8 +33,9 @@ fr:
             reorder_done: Fin de réordonnancement des Products
           records:
             title: Products
-            sorry_no_results: "Désolé ! Aucun résultat."
-            no_items_yet: 'Il n''y a actuellement aucun(e) Product. Cliquer sur "Créer un(e) nouve(au/l/lle) Product" pour créer votre premi(er/ère) product.'
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) Product. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) Product" pour créer votre premi(er/ère) product.
           product:
             view_live_html: Voir ce(t/tte) product <br/><em>(Ouvre une nouvelle fenêtre)</em>
             edit: Modifier ce(t/tte) product
@@ -23,7 +45,11 @@ fr:
           other: Autres Products
   activerecord:
     attributes:
-      'refinery/products/product':
+      refinery/categories/category:
+        name: Name
+        parent_id: Parent
+        sort_order: Sort Order
+      refinery/products/product:
         title: Title
         size: Size
         date: Date

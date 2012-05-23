@@ -1,17 +1,17 @@
 if defined?(::Refinery::User)
   ::Refinery::User.all.each do |user|
-    if user.plugins.where(:name => 'refinerycms-products').blank?
-      user.plugins.create(:name => 'refinerycms-products',
+    if user.plugins.where(:name => 'refinerycms-categories').blank?
+      user.plugins.create(:name => 'refinerycms-categories',
                           :position => (user.plugins.maximum(:position) || -1) +1)
     end
   end
 end
 
 
-url = "/products"
+url = "/categories"
 if defined?(::Refinery::Page) && ::Refinery::Page.where(:link_url => url).empty?
   page = ::Refinery::Page.create(
-    :title => 'Products',
+    :title => 'Categories',
     :link_url => url,
     :deletable => false,
     :menu_match => "^#{url}(\/|\/.+?|)$"
