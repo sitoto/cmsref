@@ -8,6 +8,7 @@ class CreateProductsProducts < ActiveRecord::Migration
       t.datetime :date
       t.integer :photo_id
       t.integer :category_id
+      t.text :title_info
       t.text :note
       t.text :blurb
       t.text :specification

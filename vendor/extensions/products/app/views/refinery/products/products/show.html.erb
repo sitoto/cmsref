@@ -1,57 +1,63 @@
-<% content_for :body_content_title do %>
-  <%= @product.title %>
+<div id="content">
+  <div id="cwrapper">
+    <div id="banner">
+      <img src="/assets/banner-ventilating.jpg">
+    </div>
+    <% unless @page.home? %>
+      <div class="bread_crumb">
+	<%= link_to "Home", '/' %>
+	<%= "&gt;".html_safe %>
+
+<% [@page.ancestors, @page].flatten.collect do |p| %> 
+  <%= link_to( p.title, p.url, :class => ( p.id == @page.id ? "current": "no" )) %> <%= "&gt;".html_safe unless p.id == @page.id  %>
 <% end %>
 
-<% content_for :body_content_left do %>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @product.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Size</h1>
-    <p>
-      <%=raw @product.size %>
-    </p>
-  </section>
-  <section>
-    <h1>Date</h1>
-    <p>
-      <%=raw @product.date %>
-    </p>
-  </section>
-  <section>
-    <h1>Photo</h1>
-    <p>
-      <%= image_fu @product.photo, nil %>
-    </p>
-  </section>
-  <section>
-    <h1>Note</h1>
-    <p>
-      <%=raw @product.note %>
-    </p>
-  </section>
-  <section>
-    <h1>Blurb</h1>
-    <p>
-      <%=raw @product.blurb %>
-    </p>
-  </section>
-<% end %>
+      </div>
+    <% end %>
+    <div class="box">
+      <div class="sidebar">
+	<h1><%= @page.title %></h1>
+	<%= render :partial => "/refinery/menu", :locals => {
+	  :dom_id => "submenu" ,
+	  :css => "submenu" ,
+          :roots => refinery_menu_pages.select{|p| p.parent_id == @page.root.id} 
+      } %> 
+      </div>
+      <div class="page_content">
+	<div class="back">
+          <a href="javascript:history.back();">BACK</a>
+	</div>
+	<div class="col3">
+	  <%= image_fu @product.photo, nil %>
+	</div>
+	<div class="col4">
+	  <div class="title"><%=raw @product.title %></div>
+	  <%=raw @product.title_info %>
+	  <%=raw @product.note %> 
+	</div>
+	<div class="clearfix"></div>
+	<div id="tab">
+	  <ul class="nav">
+	    <% [:specification, :accessories, :dimension].each_with_index do |part, part_index| %>
+          <li class='nav-<%= part_index %>'>
+	  <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/products/product", :default => part.to_s.titleize), "#nav#{part_index}", :class =>  part_index == 0 ? 'current' : '' %>
+          </li>
+        <% end %>
+	  </ul>
+	  <div class="list-wrap">
+            <% [ :specification, :accessories, :dimension].each_with_index do |part, part_index| %>
+	      <div class='page_part' id='nav<%= part_index %>' style= <%= part_index == 0 ? 'display:block' : 'display:none' %>>
+		<%=raw @product[part] -%>
+		<br>
+              </div>
+        <% end %>
 
-<% content_for :body_content_right do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="products">
-      <% @products.each do |product| %>
-        <li>
-          <%= link_to product.title, refinery.products_product_path(product) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
+	  </div>
+	</div>
 
-<%= render '/refinery/content_page' %>
+      </div>
+      <div class="clearfix"></div>
+
+    </div>
+  </div>
+</div>

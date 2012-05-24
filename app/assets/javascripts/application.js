@@ -36,6 +36,13 @@ $(document).ready(function(){
   });
 });  
 
+//for tab
+$(function() {          
+  $("#tab").organicTabs({
+    "speed": 100
+  });
+});
+
 
 //for topnav
 $(document).ready(function() {
