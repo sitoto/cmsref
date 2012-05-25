@@ -13,6 +13,16 @@ module Refinery
 
       def show
         @category = Category.find(params[:id])
+	if @category.parent.nil?
+	  @category_top = @category
+	else
+	  @category_top = @category.parent
+	end
+	if @category.children.first.nil?
+	  @category_sub = @category
+	else
+  	  @category_sub = @category.children.first
+	end
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @category in the line below:

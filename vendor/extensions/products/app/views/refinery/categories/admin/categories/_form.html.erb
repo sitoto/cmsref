@@ -11,9 +11,9 @@
   </div>
   
   <div class='field'>
-    <%= f.label :parent_id -%>
-    <%= f.number_field :parent_id  -%>
-
+    <%= f.label :parent_id %>
+    <%= collection_select(:category, :id, Refinery::Categories::Category.all, :id, :name, :include_blank => "Select one category")%>
+ 
   </div>
   
   <div class='field'>

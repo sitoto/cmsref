@@ -1,39 +1,41 @@
-<% content_for :body_content_title do %>
-  <%= @category.name %>
-<% end %>
+<div id="content">
+  <div id="cwrapper">
+    <div id="banner">
+      <img src="/assets/banner-ventilating.jpg">
+    </div>
+      <div class="bread_crumb">
+	<%= link_to "Home", '/' %>
+	<%= "&gt;".html_safe %>
+	<%= link_to @category_top.name, refinery.categories_category_path(@category_top) %>
+	<%= "&gt;".html_safe %>
+	<%= link_to @category_sub.name,  refinery.categories_category_path(@category_sub)  , :class => "current" %>
+      </div>
+    <div class="box">
+      <div class="sidebar">
+	<h1><%= @category_top.name %></h1>
+      </div>
+      <div class="page_content">
+	<h1><%= @category.name %></h1>
 
-<% content_for :body_content_left do %>
-  <section>
-    <h1>Name</h1>
-    <p>
-      <%=raw @category.name %>
-    </p>
-  </section>
-  <section>
-    <h1>Parent</h1>
-    <p>
-      <%=raw @category.parent_id %>
-    </p>
-  </section>
-  <section>
-    <h1>Sort Order</h1>
-    <p>
-      <%=raw @category.sort_order %>
-    </p>
-  </section>
-<% end %>
+	<% @category.products.each do |p| %>
 
-<% content_for :body_content_right do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="categories">
-      <% @categories.each do |category| %>
-        <li>
-          <%= link_to category.name, refinery.categories_category_path(category) %>
-        </li>
+	<div class="product-list">
+	  <div class="col1">
+            <%= image_fu p.photo,'162x162' %>
+	  </div>
+	  <div class="col2">
+	    <div class="title"><%=raw p.title %></div>
+	    <%=raw p.title_info %> 
+	    <%= link_to 'Details...', refinery.products_product_path(p), :class => 'more' %>
+	  </div>
+	  <div class="clearfix"></div>
+	</div>
+	
       <% end %>
-    </ul>
-  </aside>
-<% end %>
 
-<%= render '/refinery/content_page' %>
+      </div>
+      <div class="clearfix"></div>
+
+    </div>
+  </div>
+</div>
