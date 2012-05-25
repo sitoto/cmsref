@@ -24,8 +24,8 @@ end
 
 gem 'jquery-rails'
 gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
-
+gem 'therubyracer', '0.9.10',  :platforms => :ruby
+gem 'net-ssh', :git => 'git://github.com/nessche/net-ssh.git'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

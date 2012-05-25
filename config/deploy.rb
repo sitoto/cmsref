@@ -1,13 +1,24 @@
+
+
 # Add RVM's lib directory to the load path.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 # Load RVM's capistrano plugin.    
 #require "rvm/capistrano"
+#set :base_dir, '/usr/local/rvm'
 set :rvm_ruby_string, 'ruby-1.9.3-p0'
-#set :rvm_type, :user
+#set :rvm_gem_home, "#{fetch(:base_dir)}/gems/#{fetch(:rvm_ruby_string)}"
+#set :rvm_ruby_path, "#{fetch(:base_dir)}/rubies/#{fetch(:rvm_ruby_string)}"
+#set :default_environment, {
+#  'RUBY_VERSION' => fetch(:rvm_ruby_string),
+#  'GEM_HOME' => "#{fetch(:rvm_gem_home)}:#{fetch(:rvm_gem_home)}@global",
+#  'BUNDLE_PATH' => fetch(:rvm_gem_home),
+#  'PATH' => "#{fetch(:rvm_gem_home)}/bin:#{fetch(:rvm_gem_home)}@global/bin:#{fetch(:rvm_ruby_path)}/bin:$PATH;",
+#}
+set :rvm_type, :user
 #set :rake,"/usr/local/rvm/gems/ruby-1.9.2-p318/bin/rake"
 #set :rvm_ruby_string, '1.9.2'
-set :rvm_type, :user
+#set :rvm_type, :system
 set :rake,"/usr/local/rvm/bin/rake"
 
 # require 'hoptoad_notifier/capistrano'
@@ -33,7 +44,7 @@ role :web, "106.187.53.166"
 role :app, "106.187.53.166"
 role :db,  "106.187.53.166", :primary => true
 
-load 'deploy/assets'
+#load 'deploy/assets'
 
 namespace :deploy do
 
@@ -45,8 +56,6 @@ namespace :deploy do
   task :update_symlink do
     run "ln -s {shared_path}/public/system {current_path}/public/system"
   end
-
-
 
   task :start do ; end
   task :stop do ; end
