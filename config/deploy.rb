@@ -1,3 +1,4 @@
+require 'bundler/capistrano'
 # Add RVM's lib directory to the load path.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
@@ -66,3 +67,9 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+set :default_environment, {
+  'PATH' => "/home/app/.rvm/gems/ruby-1.9.3-p0/bin:/home/app/.rvm/gems/ruby-1.9.3-p0@global/bin:/home/app/.rvm/rubies/ruby-1.9.3-p0/bin:/home/app/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",
+  'RUBY_VERSION' => 'ruby-1.9.3-p0',
+  'GEM_HOME' => '/home/app/.rvm/gems/ruby-1.9.3-p0',
+  'GEM_PATH' => '/home/app/.rvm/gems/ruby-1.9.3-p0:/home/app/.rvm/gems/ruby-1.9.3-p0@global'
+}
