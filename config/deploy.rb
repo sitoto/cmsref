@@ -1,5 +1,3 @@
-
-
 # Add RVM's lib directory to the load path.
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
@@ -19,7 +17,7 @@ set :rvm_type, :user
 #set :rake,"/usr/local/rvm/gems/ruby-1.9.2-p318/bin/rake"
 #set :rvm_ruby_string, '1.9.2'
 #set :rvm_type, :system
-set :rake,"/usr/local/rvm/bin/rake"
+#set :rake,"/usr/local/rvm/bin/rake"
 
 # require 'hoptoad_notifier/capistrano'
 
@@ -31,18 +29,18 @@ set :application, "cmsref"
 set :branch, "master"
 set :repository,  "git@github.com:sitoto/cmsref.git"
 set :scm, "git"
-set :user, "root"
+set :user, "app"
 set :port, "22"
 
 
-set :deploy_to, "/var/www/cmsref"
+set :deploy_to, "/home/#{user}/www/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :rails_env, "production"
 
-role :web, "106.187.53.166"
-role :app, "106.187.53.166"
-role :db,  "106.187.53.166", :primary => true
+role :web, "106.187.96.182"
+role :app, "106.187.96.182"
+role :db,  "106.187.96.182", :primary => true
 
 #load 'deploy/assets'
 

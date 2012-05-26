@@ -7,6 +7,7 @@ gem 'rails', '3.2.3'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'capistrano-unicorn'
 end
 
 
@@ -24,8 +25,8 @@ end
 
 gem 'jquery-rails'
 gem 'execjs'
-gem 'therubyracer', '0.9.10',  :platforms => :ruby
-gem 'net-ssh'
+gem 'therubyracer',  :platforms => :ruby
+# gem 'net-ssh'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -33,7 +34,7 @@ gem 'net-ssh'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+# gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
