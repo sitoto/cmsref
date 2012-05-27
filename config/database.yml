@@ -27,8 +27,8 @@ production:
   pool: 5
   username: cms
   password: sitoto
-#production:
-#  adapter: sqlite3
-#  database: db/production.sqlite3
-#  pool: 5
-#  timeout: 5000
+production2:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
