@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(:version => 20120525010151) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "refinery_inquiries_inquiries", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "message"
+    t.boolean  "spam",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "refinery_inquiries_inquiries", ["id"], :name => "index_refinery_inquiries_inquiries_on_id"
+
   create_table "refinery_page_part_translations", :force => true do |t|
     t.integer  "refinery_page_part_id"
     t.string   "locale"
@@ -101,16 +113,16 @@ ActiveRecord::Schema.define(:version => 20120525010151) do
     t.string   "size"
     t.datetime "date"
     t.integer  "photo_id"
-    t.integer  "category_id"
-    t.text     "title_info"
     t.text     "note"
     t.text     "blurb"
-    t.text     "specification"
-    t.text     "accessories"
-    t.text     "dimension"
     t.integer  "position"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "specification"
+    t.text     "accessories"
+    t.text     "dimension"
+    t.integer  "category_id"
+    t.text     "title_info"
   end
 
   create_table "refinery_resources", :force => true do |t|

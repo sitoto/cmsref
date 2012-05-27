@@ -25,7 +25,7 @@ set :rvm_type, :user
 
 
 
-set :application, "cmsref"
+set :application, "rntit"
 
 set :branch, "master"
 set :repository,  "git@github.com:sitoto/cmsref.git"
@@ -58,10 +58,6 @@ namespace :deploy do
 
   task :start do ; end
   task :stop do ; end
-
-  task :chmod, :roles => :web do
-    run "chmod -R 777 #{deploy_to}/*"
-  end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
