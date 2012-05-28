@@ -13,6 +13,15 @@
     <div class="box">
       <div class="sidebar">
 	<h1><%= @category_top.name %></h1>
+
+	<div class="submenu">
+	  <ul>
+	    <li class="open current">
+	      <%= link_to @category.name, refinery.categories_category_path(@category) %>
+	    </li>
+	  </ul>
+	  <%=raw @html %>
+	</div>
       </div>
       <div class="page_content">
 	<h1><%= @category.name %></h1>

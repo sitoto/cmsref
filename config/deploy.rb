@@ -26,24 +26,24 @@ set :rvm_type, :user
 
 
 set :application, "rntit"
-
+set :domain, "test.rntit.com"
 set :branch, "master"
 set :repository,  "git@github.com:sitoto/cmsref.git"
 set :scm, "git"
 set :user, "app"
 set :port, "22"
-
+set :keep_releases, 5
 
 set :deploy_to, "/home/#{user}/www/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :rails_env, "production"
 
-role :web, "106.187.96.182"
-role :app, "106.187.96.182"
-role :db,  "106.187.96.182", :primary => true
+role :web, domain
+role :app, domain
+role :db,  domain, :primary => true
 
-#load 'deploy/assets'
+load 'deploy/assets'
 
 namespace :deploy do
 
@@ -56,7 +56,9 @@ namespace :deploy do
     run "ln -s {shared_path}/public/system {current_path}/public/system"
   end
 
-  task :start do ; end
+  task :start, :roles => :app do 
+    run "touch #{current_release}/tmp/restart.txt";
+  end
   task :stop do ; end
 
   task :restart, :roles => :app, :except => { :no_release => true } do

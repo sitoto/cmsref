@@ -13,11 +13,37 @@ module Refinery
 
       def show
         @category = Category.find(params[:id])
-	if @category.parent.nil?
-	  @category_top = @category
-	else
-	  @category_top = @category.parent
+	@category_top = @category
+	@html = ""
+	@html += "<ul>"
+
+	while @category_top.parent do 
+	  @category_top = @category_top.parent
 	end
+	# i know 
+	# first to find the last level
+	# second to set the menu
+	# the follow method is bad even wrong change it please
+	#
+
+	if @category_top.children
+	  @category_top.children.each do |c|
+	    @html += "<li class=#{}> <a href='/categories/#{c.id}'>#{c.name}</a></li>"
+	    if c.children
+	      @html += "<ul class='submenu2'>"
+	      c.children.each do |cc|
+		@html += "<li> <a href='/categories/#{cc.id}'>#{cc.name} </a></li>"
+	      end
+	      @html += "</ul>"
+
+	    end
+
+	  end
+	end
+	@html += "</ul>"
+
+
+
 	if @category.children.first.nil?
 	  @category_sub = @category
 	else
