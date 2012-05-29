@@ -1,7 +1,7 @@
 <div id="content">
   <div id="cwrapper">
     <div id="banner">
-      <img src="/assets/banner-ventilating.jpg">
+      <img src="/assets/banner-<%= params[:path].split(/\//)[0].downcase %>.jpg">
     </div>
     <% unless @page.home? %>
       <div class="bread_crumb">

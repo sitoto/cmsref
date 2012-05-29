@@ -1,27 +1,27 @@
 <div id="content">
   <div id="cwrapper">
     <div id="banner">
-      <img src="/assets/banner-ventilating.jpg">
+      <img src="/assets/banner-<%= @category_top.sort_order %>.jpg">
     </div>
     <% unless @page.home? %>
       <div class="bread_crumb">
 	<%= link_to "Home", '/' %>
 	<%= "&gt;".html_safe %>
-
-<% [@page.ancestors, @page].flatten.collect do |p| %> 
-  <%= link_to( p.title, p.url, :class => ( p.id == @page.id ? "current": "no" )) %> <%= "&gt;".html_safe unless p.id == @page.id  %>
-<% end %>
+	<%= link_to @category_top.name, refinery.categories_category_path(@category_top) %>
+	<%= "&gt;".html_safe %>
+	<%= link_to @category_last.name,  refinery.categories_category_path(@category_last)  , :class => "current" %>
+ 
 
       </div>
     <% end %>
     <div class="box">
       <div class="sidebar">
-	<h1><%= @page.title %></h1>
-	<%= render :partial => "/refinery/menu", :locals => {
-	  :dom_id => "submenu" ,
-	  :css => "submenu" ,
-          :roots => refinery_menu_pages.select{|p| p.parent_id == @page.root.id} 
-      } %> 
+ 	<h1><%= @category_top.name %></h1>
+
+	<div class="submenu">
+	  <%=raw @html %>
+	</div>
+
       </div>
       <div class="page_content">
 	<div class="back">

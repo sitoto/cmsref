@@ -13,10 +13,11 @@ module Refinery
       
       belongs_to :parent,
 		 :class_name => 'Category'
+
       has_many   :children,
 		 :class_name => "Category",
 		 :foreign_key => "parent_id",
-		 :order	=> "name",
+		 :order	=> "sort_order",
 		 :dependent => :destroy
     end
   end

@@ -1,32 +1,27 @@
 <div id="content">
   <div id="cwrapper">
     <div id="banner">
-      <img src="/assets/banner-ventilating.jpg">
+      <img src="/assets/banner-<%= @category_top.sort_order %>.jpg">
     </div>
       <div class="bread_crumb">
 	<%= link_to "Home", '/' %>
 	<%= "&gt;".html_safe %>
 	<%= link_to @category_top.name, refinery.categories_category_path(@category_top) %>
 	<%= "&gt;".html_safe %>
-	<%= link_to @category_sub.name,  refinery.categories_category_path(@category_sub)  , :class => "current" %>
+	<%= link_to @category_last.name,  refinery.categories_category_path(@category_last)  , :class => "current" %>
       </div>
     <div class="box">
       <div class="sidebar">
 	<h1><%= @category_top.name %></h1>
 
 	<div class="submenu">
-	  <ul>
-	    <li class="open current">
-	      <%= link_to @category.name, refinery.categories_category_path(@category) %>
-	    </li>
-	  </ul>
 	  <%=raw @html %>
 	</div>
       </div>
       <div class="page_content">
-	<h1><%= @category.name %></h1>
+	<h1><%= @category_last.name %></h1>
 
-	<% @category.products.each do |p| %>
+	<% @category_last.products.each do |p| %>
 
 	<div class="product-list">
 	  <div class="col1">
